@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 export function Hero() {
 
@@ -19,7 +20,9 @@ export function Hero() {
                 Get Started
             </div>
             <div>
-                <Button variant={"secondary"} className="h-18 w-70 text-xl font-bold bg-violet-700 text-white">Explore SolxSign</Button>
+                <Link href={"/balance"}>
+                    <Button variant={"secondary"} className="h-18 w-70 text-xl font-bold bg-violet-700 text-white cursor-pointer">Explore SolxSign</Button>
+                </Link>
             </div>
         </div>
 

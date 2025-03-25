@@ -1,6 +1,6 @@
 "use client";
 import { useWallet } from '@solana/wallet-adapter-react';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
 
 import { Layers2 } from "lucide-react"
@@ -15,6 +15,14 @@ export function Navbar() {
             console.log('Connected to wallet:', publicKey?.toBase58());
         }
     }, [connected, publicKey]);
+
+    const [mounted, setMounted] = useState(false);
+    
+    useEffect(() => {
+        setMounted(true);
+    }, []);
+
+    if(!mounted) return null;
 
     return (
         <div className="flex items-center justify-between mx-auto pt-4 mb-8">
