@@ -6,6 +6,7 @@ import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
 import { AppSidebar } from "@/components/app-sidebar"
 import  WalletContextProvider  from '@/context/walletContext'; 
 import { Navbar } from "@/components/navbar";
+import { Toaster } from "@/components/ui/sonner"
 
 
 
@@ -49,6 +50,7 @@ export default function RootLayout({
                 <div className="fixed top-4 left-32 right-32 mb-8">
                   <Navbar/>
                   {children}
+                  <Toaster />
                 </div>
               </main>
 
