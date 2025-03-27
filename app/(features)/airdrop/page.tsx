@@ -11,7 +11,7 @@ import {
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { Info } from "lucide-react";
-import { toast } from "sonner"
+import { toast, Toaster } from "sonner"
 
 import { useWallet, useConnection } from '@solana/wallet-adapter-react';
 import { useRef } from "react";
@@ -31,7 +31,11 @@ export default function AirDrop() {
             return inputRef.current.focus();
         }
         else if (inputRef.current.value <= '0' || inputRef.current.value >= '5') {
-            return toast("Amount should be greater than 0 and less than equal to 5.");
+            return toast("Amount should be greater than 0 and less than equal to 5.",{
+                style: {
+                    color: '#D22B2B', // Apply green color directly
+                }
+            });
         }
 
         requestAirdrop(inputRef.current.value);
@@ -42,7 +46,11 @@ export default function AirDrop() {
         let solAmt = parseInt(amount);
         try{
             await connection.requestAirdrop(wallet.publicKey, solAmt * LAMPORTS_PER_SOL);
-            return toast("Airdrop Requested Successfully");
+            return toast("Airdrop Requested Successfully",{
+                style: {
+                    color: '#50C878',
+                }
+            });
         }catch(e : any){
             return toast("Airdrop Request Failed due to " + e.message);
         }
