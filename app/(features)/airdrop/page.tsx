@@ -11,7 +11,7 @@ import {
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { Info } from "lucide-react";
-import { toast, Toaster } from "sonner"
+import { toast } from "sonner"
 
 import { useWallet, useConnection } from '@solana/wallet-adapter-react';
 import { useRef } from "react";
@@ -52,7 +52,11 @@ export default function AirDrop() {
                 }
             });
         }catch(e : any){
-            return toast("Airdrop Request Failed due to " + e.message);
+            return toast("Airdrop Request Failed. Try after some time.",{
+                style: {
+                    color: '#D22B2B',
+                }
+            });
         }
     }
 
